@@ -20,4 +20,10 @@ domReady(() => {
     import('./components/Scroller.svelte');
   }
 
+  // -------------------------------------------------------------
+  // Date
+  if (document.querySelector('ts-date')) {
+    import('./components/Date.svelte');
+  }
+
 });

@@ -9,7 +9,7 @@
 	import { onMount } from 'svelte';
 
   // default values, color of the loader.
-  export let color = 'blue';
+  export let color = '#3d7e9a';
 
   let loader;
 
@@ -24,17 +24,17 @@
 
   function scroll(e) {
     const { scrollY } = window;
-    const { top, height, y } = loader.getBoundingClientRect();
+    const { top, height, y, bottom } = loader.getBoundingClientRect();
 
     // calculate starting position, distance of top part of the element and document top.
     const start = scrollY + y;
 
     // calculate end position, when bottom part of element reaches window bottom.
-    const stop =  height + start;
+    const stop =  window.innerHeight || document.documentElement.clientHeight;
 
     // current value/position of element on screen.
     const value = scrollY + Math.abs(top);
-
+  
     // remap current position to munbers between 1 and 0, so we can pass them to tweened function.
     const positionValue = remapValues(value, start, stop, 0, 1);
     const position = (positionValue > 1) ? 1 : positionValue;

@@ -12,33 +12,134 @@
 
   <ts-modal
     duration=500
-    background="rgba(140, 21, 21, 0.5)"
+    background="rgba(61, 126, 154, 0.5)"
   >
     <div class="inner-modal">
-      This is modal
+        <article>
+          <div class="summary">
+          <p>Web Components is a suite of different technologies allowing you to create reusable custom elements — with their functionality encapsulated away from the rest of your code — and utilize them in your web apps.</p>
+          </div>
+  
+          <h2>Concepts and usage</h2>
+          
+          <p>As developers, we all know that reusing code as much as possible is a good idea. This has traditionally not been so easy for custom markup structures — think of the complex HTML (and associated style and script) you've sometimes had to write to render custom UI controls, and how using them multiple times can turn your page into a mess if you are&nbsp;not careful.</p>
+          
+          <p>Web Components aims to solve such problems — it consists of three main technologies, which can be used together to create versatile custom elements with encapsulated functionality that can be reused wherever you like without fear of code collisions.</p>
+          
+          <ul>
+           <li><strong>Custom elements</strong>: A set of JavaScript APIs that allow you to define custom elements and their behaviour, which can then be used as desired in your user interface.</li>
+           <li><strong>Shadow DOM</strong>: A set of JavaScript APIs for attaching an encapsulated "shadow" DOM tree to an element — which is rendered separately from the main document DOM — and controlling associated functionality. In this way, you can keep an element's features private, so they can be scripted and styled without the fear of collision with other parts of the document.</li>
+           <li><strong>HTML templates</strong>: The <a href="/en-US/docs/Web/HTML/Element/template" title="The HTML Content Template (<template>) element is a mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript."><code>&lt;template&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/slot" title="The HTML <slot> element—part of the Web Components technology suite—is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together."><code>&lt;slot&gt;</code></a> elements enable you to write markup templates that are not displayed in the rendered page. These can then be reused multiple times as the basis of a custom element's structure.</li>
+          </ul>
+          
+          <p>The basic approach for implementing a web component generally looks something like this:</p>
+          
+          <ol>
+           <li>Create a class or a function in which you&nbsp;specify your web component functionality. If using a class, use&nbsp;the ECMAScript 2015 class syntax (see <a href="/en-US/docs/Web/JavaScript/Reference/Classes">Classes</a> for more information).&nbsp;</li>
+           <li>Register your new custom element using the <a href="/en-US/docs/Web/API/CustomElementRegistry/define" title="The define() method of the CustomElementRegistry interface defines a new custom element."><code>CustomElementRegistry.define()</code></a> method, passing it the element name to be defined, the class or function in which its functionality is specified, and optionally, what element it inherits from.</li>
+           <li>If required, attach a shadow DOM to the custom element using <a href="/en-US/docs/Web/API/Element/attachShadow" title="The Element.attachShadow() method attaches a shadow DOM tree to the specified element and returns a reference to its ShadowRoot."><code>Element.attachShadow()</code></a> method. Add child elements, event listeners, etc., to the shadow DOM using regular DOM methods.</li>
+           <li>If required, define an HTML template using <a href="/en-US/docs/Web/HTML/Element/template" title="The HTML Content Template (<template>) element is a mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript."><code>&lt;template&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/slot" title="The HTML <slot> element—part of the Web Components technology suite—is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together."><code>&lt;slot&gt;</code></a>. Again use regular DOM methods to clone the template and attach it to your shadow DOM.</li>
+           <li>Use your custom element wherever you like on your page, just like you would any regular HTML element.</li>
+          </ol>
+
+          <div class="read-more"><a class="read-more-link" href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">Read more</a></div>
     </div>
   </ts-modal>
   
-  <button class="js-modal">
-    About
-  </button>
+  <header>
+    <div class="header-container">
+      <a class="logo" href="https://github.com/Tihi321/web-components">
+        <svg class="logo-icon" viewbox="0 0 10 10">
+          <path fill="transparent" stroke-linecap="round" stroke="#000000" stroke-width="0.5" d="M 5 1 C -1 1, -1 9, 5 9 M 5 3 C 8 3, 8 7, 5 7 M 5 3 C 2 3, 2 7, 5 7 M 5 1 V 3 M 5 7 V 9" />
+        </svg>
+      </a>
+      <button class="modal-btn js-modal">
+        About
+      </button>
+    </div>
+  </header>
 
   <ts-scroller>
     <div class="scroller-inner">
         <div class="svg-outer">
             <ts-path-grid
-            vbx="100"
-            vby="100"
+            vbx="10"
+            vby="10"
             opacity="0.4"
-            fill="green"
+            strokewidth="0.5"
+            fill="transparent"
+            stroke="#3d7e9a"
+            other='stroke-linecap="round"'
+            path='M 5 1 C -1 1, -1 9, 5 9 M 5 3 C 8 3, 8 7, 5 7 M 5 3 C 2 3, 2 7, 5 7 M 5 1 V 3 M 5 7 V 9'
           >
           </ts-path-grid>
         </div>
+        <div>
+            <div id="content" class="article text-content"><article id="wikiArticle"><div></div>
+
+              <p class="summary">One of the key features of the Web Components standard is the ability to create custom elements that encapsulate your functionality on an HTML page, rather than having to make do with a long, nested batch of elements that together provide a custom page feature. This article introduces the use of the Custom Elements API.</p>
+              
+              <div class="note">
+              <p><strong>Note</strong>: Custom elements are supported by default in Firefox, Chrome, and Edge (76). Opera and Safari so far support only autonomous custom elements.</p>
+              </div>
+              
+              <h2 id="High-level_view">High-level view</h2>
+              
+              <p>The controller of custom elements on a web document is the <a href="/en-US/docs/Web/API/CustomElementRegistry" title="The CustomElementRegistry interface provides methods for registering custom elements and querying registered elements. To get an instance of it, use the&nbsp;window.customElements property.&nbsp;"><code>CustomElementRegistry</code></a> object — this object allows you to register a custom element on the page, return information on what custom elements are registered, etc.</p>
+              
+              <p>To register a custom element on the page, you use the <a href="/en-US/docs/Web/API/CustomElementRegistry/define" title="The define() method of the CustomElementRegistry interface defines a new custom element."><code>CustomElementRegistry.define()</code></a> method. This takes as its arguments:</p>
+              
+              <ul>
+               <li>A <a href="/en-US/docs/Web/API/DOMString" title="DOMString is a UTF-16 String. As JavaScript already uses such strings, DOMString is mapped directly to a String."><code>DOMString</code></a> representing the name you are giving to the element. Note that custom element names <a class="external" href="https://stackoverflow.com/questions/22545621/do-custom-elements-require-a-dash-in-their-name" rel="noopener">require a dash to be used in them</a>; they can't be single words.</li>
+               <li>A <a href="/en-US/docs/Web/JavaScript/Reference/Classes">class</a> object that defines the behaviour of the element.</li>
+               <li>Optionally, an options object containing an <code>extends</code> property, which specifies the built-in element your element inherits from if any.</li>
+              </ul>
+              
+              <p>So for example, we can define a custom <a class="external" href="https://mdn.github.io/web-components-examples/word-count-web-component/" rel="noopener">word-count element</a> like this:</p>
+              
+              <pre class="brush: js line-numbers language-js"><code class=" language-js">customElements<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'word-count'</span><span class="token punctuation">,</span> WordCount<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token keyword">extends</span><span class="token punctuation">:</span> <span class="token string">'p'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+              
+              <p>The element is called <code>word-count</code>, its class object is <code>WordCount</code>, and it extends the <a href="/en-US/docs/Web/HTML/Element/p" title="The HTML <p> element represents a paragraph."><code>&lt;p&gt;</code></a> element.</p>
+              
+              <p>A custom element's class object is written using standard ES 2015 class syntax. For example, <code>WordCount</code> is structured like so:</p>
+              
+              <pre class="brush: js line-numbers language-js"><code class=" language-js"><span class="token keyword">class</span> <span class="token class-name">WordCount</span> <span class="token keyword">extends</span> <span class="token class-name">HTMLParagraphElement</span> <span class="token punctuation">{</span>
+                <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                  <span class="token comment">// Always call super first in constructor</span>
+                  <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              
+                  <span class="token comment">// Element functionality written in here</span>
+              
+                  <span class="token operator">...</span>
+                <span class="token punctuation">}</span>
+              <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+              
+              <p>This is just a simple example, but there is more you can do here. It is possible to define specific lifecycle callbacks inside the class, which run at specific points in the element's lifecycle. For example, <code>connectedCallback</code> is invoked each time the custom element is appended into a document-connected element, while <code>attributeChangedCallback</code> is invoked when one of the custom element's attributes is added, removed, or changed.</p>
+              
+              <p>You'll learn more about these in the <a href="#Using_the_lifecycle_callbacks">Using the lifecycle callbacks</a> section below.</p>
+              
+              <p>There are two types of custom elements:</p>
+              
+              <ul>
+               <li><strong>Autonomous custom elements</strong> are standalone — they don't inherit from standard HTML elements. You use these on a page by literally writing them out as an HTML element. For example <code>&lt;popup-info&gt;</code>, or <code>document.createElement("popup-info")</code>.</li>
+               <li><strong>Customized built-in elements</strong> inherit from basic HTML elements. To create one of these, you have to specify which element they extend (as implied in the examples above), and they are used by writing out the basic element but specifying the name of the custom element in the <code><a href="/en-US/docs/Web/HTML/Global_attributes#attr-is">is</a></code> attribute (or property). For example <code>&lt;p is="word-count"&gt;</code>, or <code>document.createElement("p", { is: "word-count" })</code>.</li>
+              </ul>
+
+              <div class="read-more"><a class="read-more-link" href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements">Read more</a></div>
+        </div>
+      </div>
     </div>
   </ts-scroller>
-
-  <div class="footer"></div>
-  
+  <footer>
+    <div class="footer-container">
+      <div>
+        Web Components @<ts-date></ts-date>
+      </div>
+      <a href="https://tihomir-selak.from.hr/" class="footer-link">
+        Tihomir Selak
+      </a>
+    </div>
+  </footer>
   <script src='components.js'></script>
   <script src='index.js'></script>
 </body>

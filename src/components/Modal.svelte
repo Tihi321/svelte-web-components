@@ -54,8 +54,10 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+    padding: 25px;
     display: flex;
     overflow: auto;
+    box-sizing: border-box;
   }
 
   .container {

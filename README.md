@@ -47,3 +47,8 @@ Components are dynamically loaded, depending whether elements are used. Added po
 	**zindex** - default 1<br/>
 	**duration**:  duration of transition, default is 350ms<br/>
 	**background** : backdrop color of the modal<br/>
+	
+4.  **Date** - simple date element, shows a year.
+
+	*Element*<br/>
+  **`<ts-date></ts-date>`**
