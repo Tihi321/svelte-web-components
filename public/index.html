@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf8'>
+	<meta name='viewport' content='width=device-width'>
+	<title>Svelte web components</title>
+  <link rel='icon' type='image/png' href='favicon.png'>
+  <link src="index.css" rel="stylesheet"/>
+</head>
+
+<body class="js-body">
+
+  <ts-modal
+    duration=500
+    background="rgba(140, 21, 21, 0.5)"
+  >
+    <div class="inner-modal">
+      This is modal
+    </div>
+  </ts-modal>
+  
+  <button class="js-modal">
+    About
+  </button>
+
+  <ts-scroller>
+    <div class="scroller-inner">
+        <div class="svg-outer">
+            <ts-path-grid
+            vbx="100"
+            vby="100"
+            opacity="0.4"
+            fill="green"
+          >
+          </ts-path-grid>
+        </div>
+    </div>
+  </ts-scroller>
+
+  <div class="footer"></div>
+  
+  <script src='components.js'></script>
+  <script src='index.js'></script>
+</body>
+</html>

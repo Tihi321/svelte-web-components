@@ -9,6 +9,9 @@ Components are dynamically loaded, depending whether elements are used. Added po
 
 1.  **Scroller** - adds animated progress bar on top of wrapped elements, animated on scroll. 
 
+	*Element*<br/>
+  **`<ts-scroller>... html ...</ts-scroller>`**
+
 	*Attributes*<br/>
 	**color** - color of the loader
 	
@@ -17,6 +20,9 @@ Components are dynamically loaded, depending whether elements are used. Added po
 	**box-shadow** : --ts-scroller-shadow<br/>
 	
 2.  **PathGrid** - svg element takes path as argument and displays grid with coordinates on side over canvas, for easier path generation.
+
+	*Element*<br/>
+  **`<ts-path-grid></ts-path-grid>`**
 
 	*Attributes*<br/>
 	**path** - svg path <br/>
@@ -32,6 +38,9 @@ Components are dynamically loaded, depending whether elements are used. Added po
 	**fill**:  --ts-path-grid-fill - color of the grid<br/>
 	
 3.  **Modal** - simple modal wrapper, dispatches event on close. With close activated when clicked on backdrop.
+
+	*Element*<br/>
+  **`<ts-modal>... html ...</ts-modal>`**
 
 	*Attributes* <br/>
 	**show** - show modal, default is false<br/>
