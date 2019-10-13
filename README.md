@@ -5,6 +5,10 @@ This project uses template for [Svelte](https://svelte.dev) from https://github.
 
 Components are dynamically loaded, depending whether elements are used. Added polyfills for IE 11 for Custom elements.
 
+Preview of the elements is on https://tihi321.github.io/web-components/
+
+![Preview image of web components](docs/assets/preview.png?raw=true "Swelte components")
+
 ## Components
 
 1.  **Scroller** - adds animated progress bar on top of wrapped elements, animated on scroll. 
