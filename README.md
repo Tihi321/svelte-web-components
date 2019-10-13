@@ -9,34 +9,32 @@ Components are dynamically loaded, depending whether elements are used. Added po
 
 1.  **Scroller** - adds animated progress bar on top of wrapped elements, animated on scroll. 
 
-	*Attributes*
-
+	*Attributes*<br/>
 	**color** - color of the loader
 	
-	*Css Variables*
-
-	**height**:  --ts-scroller-height
-	**box-shadow** : --ts-scroller-shadow
+	*Css Variables*<br/>
+	**height**:  --ts-scroller-height<br/>
+	**box-shadow** : --ts-scroller-shadow<br/>
 	
 2.  **PathGrid** - svg element takes path as argument and displays grid with coordinates on side over canvas, for easier path generation.
 
-	*Attributes*
-	**path** - svg path 
-	**opacity** - opacity of the grid
-	**fill**:  fill of the path
-	**stroke** : stroke of the path
-	**strokewidth** - stroke width
-	**vbx** - x coordinate for the viewbox
-	**vby**:  y coordinate for the viewbox
+	*Attributes*<br/>
+	**path** - svg path <br/>
+	**opacity** - opacity of the grid<br/>
+	**fill**:  fill of the path<br/>
+	**stroke** : stroke of the path<br/>
+	**strokewidth** - stroke width<br/>
+	**vbx** - x coordinate for the viewbox<br/>
+	**vby**:  y coordinate for the viewbox<br/>
 	**other** : here you can write any other property for path, as. dash-array, ...
 	
-	*Css Variables*
-	**fill**:  --ts-path-grid-fill - color of the grid
+	*Css Variables*<br/>
+	**fill**:  --ts-path-grid-fill - color of the grid<br/>
 	
 3.  **Modal** - simple modal wrapper, dispatches event on close. With close activated when clicked on backdrop.
 
-	*Attributes* 
-	**show** - show modal, default is false
-	**zindex** - default 1
-	**duration**:  duration of transition, default is 350ms
-	**background** : backdrop color of the modal
+	*Attributes* <br/>
+	**show** - show modal, default is false<br/>
+	**zindex** - default 1<br/>
+	**duration**:  duration of transition, default is 350ms<br/>
+	**background** : backdrop color of the modal<br/>
