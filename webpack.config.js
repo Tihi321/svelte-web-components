@@ -6,7 +6,7 @@ const prod = mode === 'production';
 
 const entries = {
 	index: ['./src/index.js'],
-	"swelte-web-components": ['./src/swelte-web-components.js'],
+	"ts-web-components": ['./src/ts-web-components.js'],
 	"ts-date": ['./src/ts-date.js'],
 	"ts-modal": ['./src/ts-modal.js'],
 	"ts-path-grid": ['./src/ts-path-grid.js'],
@@ -16,7 +16,8 @@ const entries = {
 
 module.exports = {
 	entry: {
-		"swelte-web-components": ['./src/swelte-web-components.js'],
+		index: ['./src/index.js'],
+		"ts-web-components": ['./src/ts-web-components.js'],
 	},
 	resolve: {
 		alias: {
