@@ -8,6 +8,7 @@ module.exports = {
 	entry: {
 		index: ['./src/index.js'],
 		components: ['./src/components.js'],
+		randomQuote: ['./src/random-quote.js'],
 	},
 	resolve: {
 		alias: {
