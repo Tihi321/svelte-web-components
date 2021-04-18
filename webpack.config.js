@@ -4,11 +4,19 @@ const path = require('path');
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
 
+const entries = {
+	index: ['./src/index.js'],
+	"swelte-web-components": ['./src/swelte-web-components.js'],
+	"ts-date": ['./src/ts-date.js'],
+	"ts-modal": ['./src/ts-modal.js'],
+	"ts-path-grid": ['./src/ts-path-grid.js'],
+	"ts-scroller": ['./src/ts-scroller.js'],
+	"ts-random-quote": ['./src/ts-random-quote.js'],
+};
+
 module.exports = {
 	entry: {
-		index: ['./src/index.js'],
-		components: ['./src/components.js'],
-		randomQuote: ['./src/random-quote.js'],
+		"swelte-web-components": ['./src/swelte-web-components.js'],
 	},
 	resolve: {
 		alias: {
